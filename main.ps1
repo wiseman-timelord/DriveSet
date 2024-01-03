@@ -2,8 +2,8 @@
 . .\scripts\functions.ps1
 
 # Global Variables
-$Global:DriveSetPscFilePath = ".\scripts\drives.psd1"
 $Global:DriveSetPscSleepDuration = 1
+$Global:MappedDrives = @{}
 
 function Print-Header {
     Clear-Host
@@ -24,30 +24,70 @@ function Show-Menu {
     return $choice
 }
 
-function DriveSet-Psc {
+function Main-Menu {
+    Refresh-MappedDrives
+
     do {
         $mainMenu = @{
-            "1" = "System Folders"
-            "2" = "Games Folders"
-            "3" = "WSL Folders"
+            "1" = "Choose Profile"
+            "2" = "System Folders"
+            "3" = "Games Folders"
+            "4" = "WSL Folders"
+            "R" = "Refresh Screen"
             "X" = "Exit Program"
         }
 
-        $choice = Show-Menu -menuItems $mainMenu -prompt "Select, Folder Themes 1-3, Exit Program=X:"
-
-        if ($choice -eq 'X') { "Exiting"; break }
-
-        $path = $null
+        $choice = Show-Menu -menuItems $mainMenu -prompt "Select, Folder Themes 1-4, Refresh=R, Exit=X:"
 
         switch ($choice) {
-            "1" { $path = Show-SystemFoldersMenu }
-            "2" { $path = Show-GamesFoldersMenu }
-            "3" { $path = Show-WSLFoldersMenu }
+            "1" { Show-ChooseProfileMenu }
+            "2" { Show-SystemFoldersMenu }
+            "3" { Show-GamesFoldersMenu }
+            "4" { Show-WSLFoldersMenu }
+            "R" { Refresh-MappedDrives }
+            "X" { "Exiting"; break }
             default { "Invalid choice"; continue }
         }
-
-        MapDrive $path
     } while ($true)
 }
 
-DriveSet-Psc
+function Show-SystemFoldersMenu {
+    $systemFoldersMenu = @{
+        "1" = "User Profiles"
+        "2" = "Public Desktop"
+        "3" = "Windows Temp"
+        "4" = "Public Folder"
+    }
+
+    $choice = Show-Menu -menuItems $systemFoldersMenu -prompt "Select System Folder: 1-4"
+    Toggle-DriveAssignment $choice
+}
+
+function Show-GamesFoldersMenu {
+    $gamesFoldersMenu = @{
+        "1" = "Steam Default"
+        "2" = "Epic Games Default"
+    }
+
+    $choice = Show-Menu -menuItems $gamesFoldersMenu -prompt "Select Game Folder: 1-2"
+    Toggle-DriveAssignment $choice
+}
+
+function Show-WSLFoldersMenu {
+    $wslFoldersMenu = @{
+        "1" = "WSL Ubuntu"
+        "2" = "WSL Kali Linux"
+        "3" = "WSL openSUSE"
+        "4" = "WSL Debian"
+    }
+
+    $choice = Show-Menu -menuItems $wslFoldersMenu -prompt "Select WSL Folder: 1-4"
+    Toggle-DriveAssignment $choice
+}
+
+function Show-ChooseProfileMenu {
+    Choose-Profile
+}
+
+
+Main-Menu
