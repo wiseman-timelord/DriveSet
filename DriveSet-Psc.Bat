@@ -2,9 +2,9 @@ REM Script: DriveSet-Psc.Bat
 @echo off
 
 :: Initialization
-mode con cols=75 lines=30
+mode con cols=60 lines=30
 color 0E
-title DriveAssign-Psc
+title DriveSet-Psc
 cd /d "%~dp0"
 echo.
 echo Launcher Script Started...
@@ -32,12 +32,12 @@ if %errorlevel% == 0 (
 timeout /t 2 /nobreak >nul
 cls
 echo.
-echo  ____       _           ____       _        ____           
-echo |  _ \ _ __(_)_   _____/ ___|  ___| |_     |  _ \ ___  ___ 
-echo | | | | '__| \ \ / / _ \___ \ / _ \ __|____| |_) / __|/ __|
-echo | |_| | |  | |\ V /  __/___) |  __/ ||_____|  __/\__ \ (__ 
-echo |____/|_|  |_| \_/ \___|____/ \___|\__|    |_|   |___/\___|            
-echo ======================( DriveSet-Psc )=======================
+echo   ^_^_^_^_       ^_           ^_^_^_^_       ^_        ^_^_^_^_           
+echo  ^|  ^_ \ ^_ ^_^_(^_)^_   ^_^_^_^_^_/ ^_^_^_^|  ^_^_^_^| ^|^_     ^|  ^_ \ ^_^_^_  ^_^_^_ 
+echo  ^| ^| ^| ^| '^_^_^| \ \ / / ^_ \^_^_^_ \ / ^_ \ ^_^_^|^_^_^_^_^| ^|^_) / ^_^_^|/ ^_^_^|
+echo  ^| ^|^_^| ^| ^|  ^| ^|\ V /  ^_^_/^_^_^_) ^|  ^_^_/ ^|^|^_^_^_^_^_^|  ^_^_/\^_^_ \ (^_^_ 
+echo  ^|^_^_^_^_/^|^_^|  ^|^_^| \^_/ \^_^_^_^|^_^_^_^_/ \^_^_^_^|\^_^_^|    ^|^_^|   ^|^_^_^_/\^_^_^_^|            
+echo ======================( DriveSet-Psc )======================
 echo.
 echo                   1. Run Driveset-Psc,
 echo                  2. Check File Integrity,
