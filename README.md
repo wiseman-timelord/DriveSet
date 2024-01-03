@@ -1,5 +1,5 @@
 # DriveSet-Psc
-Status: ALPHA
+Status: ALPHA (do not use).
 
 ## Work Done
 - Batch conformed from NetOptMon-Psc, or whatever its name will end up being.
