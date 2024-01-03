@@ -12,7 +12,7 @@ Status: ALPHA (do not use).
 - Test & Develope.
 
 ## DESCRIPTION
-Tool to set folder locations of common interest to being drives...
+Tool to set folder locations of common interest to being assigned to drive letters, this will be offered on Assign/Release toggle, checked upon entering menu, thus allowing de-assignment.
 
 ## PREVIEW
 Folders that will be in the submenus...
