@@ -15,19 +15,27 @@ Status: ALPHA (do not use).
 - Milestones: Complete Menus, Optimize & Improve layout, Final Testing & Fixing.
 
 ## DESCRIPTION
-Tool to set folder locations of common interest to being assigned to drive letters, this will be offered on Assign/Release toggle, checked upon entering menu, thus allowing de-assignment.
+DriveSet-Psc is a versatile PowerShell Core application for Windows 10 users, designed to streamline the process of assigning drive letters to commonly accessed folders. Whether it’s for quick access to system directories, gaming folders, WSL distributions, or user profiles, DriveSet-Psc offers a user-friendly, interactive menu-driven interface to make drive letter assignment a hassle-free experience.
+
+## FEATURES
+- Customizable Menus: Users can navigate through various menus to select different folder types (System, Games, WSL, User Profiles).
+- Dynamic Drive Mapping: Dynamically assigns available drive letters to chosen folders, and can unassign them as needed.
+- User Profile Management: Enables quick mapping of user profiles to drive letters.
+- WSL Support: Specific support for WSL folders, catering to different Linux distributions within WSL.
+- Refresh Capability: Allows users to refresh the screen and update the mapped drives list.
+- Interactive Interface: User-friendly, interactive command-line interface for ease of use.
+
 
 ## PREVIEW
 Folders that will be in the submenus...
 ```
-"C:\Users\Public\Desktop"
-"C:\Windows\Temp"
-"C:\Users\Public"
-Choose-Profile
-"C:\Program Files (x86)\Steam\SteamApps\Common"
-"C:\Program Files\Epic Games"
-"\\wsl$\Ubuntu"
-"\\wsl$\Kali-Linux"
-"\\wsl$\openSUSE"
-"\\wsl$\Debian"
+======================( DriveSet-Psc )======================
+=======================( Main Menu )======================
+
+1: Choose Profile
+2: System Folders
+3: Games Folders
+4: WSL Folders
+
+Select, Folder Themes 1-4, Refresh Display=R, Exit Program=X:
 ```
