@@ -26,4 +26,5 @@ Choose-Profile
 "\\wsl$\Ubuntu"
 "\\wsl$\Kali-Linux"
 "\\wsl$\openSUSE"
-"\\wsl$\Debian"```
+"\\wsl$\Debian"
+```
