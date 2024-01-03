@@ -8,7 +8,8 @@ Status: ALPHA (do not use).
 - Create menus
 - Figure out folders to use.
 - Optimize layout
-- Test
+- Improve
+- Test & Develope.
 
 ## DESCRIPTION
 Tool to set folder locations of common interest to being drives...
