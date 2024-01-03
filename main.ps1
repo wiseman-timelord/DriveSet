@@ -1,51 +1,53 @@
-@echo off
-SETLOCAL ENABLEDELAYEDEXPANSION
+# Importing functions from the functions.ps1 script
+. .\scripts\functions.ps1
 
-:: Initialization
-mode con cols=60 lines=20
-color 0A
-title DriveAssign-Ba - WSL Drive Assignment Tool
-cd /d "%~dp0"
-echo.
-echo DriveAssign-Ba Script Started...
-echo.
-timeout /t 2 /nobreak >nul
+# Global Variables
+$Global:DriveSetPscFilePath = ".\scripts\drives.psd1"
+$Global:DriveSetPscSleepDuration = 1
 
-:: Get the name of your WSL distribution
-SET WslDistribution=Ubuntu
-echo WSL Distribution: %WslDistribution%
-timeout /t 1 /nobreak >nul
+function Print-Header {
+    Clear-Host
+    Write-Host "======================( DriveSet-Psc )======================"
+}
 
-:: List all available drive letters
-echo Available drive letters:
-for %%i in (A B C D E F G H I J K L M N O P Q R S T U V W X Y Z) do (
-    if not exist %%i:\ (
-        echo     %%i
+function Show-Menu {
+    param (
+        [hashtable]$menuItems,
+        [string]$prompt
     )
-)
-timeout /t 1 /nobreak >nul
 
-:: Prompt the user to input the desired drive letter
-:input
-SET /P DriveLetter=Enter the drive letter you want to use: 
-IF NOT EXIST %DriveLetter%:\ (
-    echo Invalid choice, please try again.
-    GOTO input
-)
+    Print-Header
+    "Select location:"
+    $menuItems.GetEnumerator() | ForEach-Object { "$($_.Key): $($_.Value)" }
+    $choice = Read-Host $prompt
+    Start-Sleep -Seconds $Global:DriveSetPscSleepDuration
+    return $choice
+}
 
-:: Map the network drive
-echo Attempting to map WSL %WslDistribution% to %DriveLetter%:
-net use %DriveLetter%: \\wsl$\\%WslDistribution%
-if %errorlevel% == 0 (
-    echo ...Mapping Success.
-) else (
-    echo ...Error in Mapping Drive.
-)
-timeout /t 2 /nobreak >nul
+function DriveSet-Psc {
+    do {
+        $mainMenu = @{
+            "1" = "System Folders"
+            "2" = "Games Folders"
+            "3" = "WSL Folders"
+            "X" = "Exit Program"
+        }
 
-:: End Script
-echo.
-echo DriveAssign-Ba Script Finished.
-echo.
-ENDLOCAL
-pause
+        $choice = Show-Menu -menuItems $mainMenu -prompt "Select, Folder Themes 1-3, Exit Program=X:"
+
+        if ($choice -eq 'X') { "Exiting"; break }
+
+        $path = $null
+
+        switch ($choice) {
+            "1" { $path = Show-SystemFoldersMenu }
+            "2" { $path = Show-GamesFoldersMenu }
+            "3" { $path = Show-WSLFoldersMenu }
+            default { "Invalid choice"; continue }
+        }
+
+        MapDrive $path
+    } while ($true)
+}
+
+DriveSet-Psc
