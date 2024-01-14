@@ -40,5 +40,5 @@ Folders that will be in the submenus...
 Select, Folder Themes 1-4, Refresh Display=R, Exit Program=X:
 ```
 
-### DISCLAIMER
-Read "License.Txt", its, what its there for and why its supplied with the package.
+## DISCLAIMER
+The "License.Txt" covers, this and relating, stuff.
