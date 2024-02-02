@@ -1,8 +1,8 @@
-# DriveSet-Psc
+# DriveSet
 Status: ALPHA (do not use).
 
 ## Work Done
-- Batch conformed from NetOptMon-Psc, or whatever its name will end up being.
+- Batch conformed from NetOptMon, or whatever its name will end up being.
 - Figured out folders to use.
 
 ## Work TODO
@@ -15,7 +15,7 @@ Status: ALPHA (do not use).
 - Milestones: Complete Menus, Optimize & Improve layout, Final Testing & Fixing.
 
 ## DESCRIPTION
-DriveSet-Psc is a versatile PowerShell Core application for Windows 10 users, designed to streamline the process of assigning drive letters to commonly accessed folders. Whether it’s for quick access to system directories, gaming folders, WSL distributions, or user profiles, DriveSet-Psc offers a user-friendly, interactive menu-driven interface to make drive letter assignment a hassle-free experience.
+DriveSet is a versatile PowerShell Core application for Windows 10 users, designed to streamline the process of assigning drive letters to commonly accessed folders. Whether it’s for quick access to system directories, gaming folders, WSL distributions, or user profiles, DriveSet offers a user-friendly, interactive menu-driven interface to make drive letter assignment a hassle-free experience.
 
 ## FEATURES
 - Customizable Menus: Users can navigate through various menus to select different folder types (System, Games, WSL, User Profiles).
@@ -29,7 +29,7 @@ DriveSet-Psc is a versatile PowerShell Core application for Windows 10 users, de
 ## PREVIEW
 Folders that will be in the submenus...
 ```
-======================( DriveSet-Psc )======================
+======================( DriveSet )======================
 =======================( Main Menu )======================
 
 1: Choose Profile
